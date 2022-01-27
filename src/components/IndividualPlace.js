@@ -157,7 +157,7 @@ const IndividualPlace = () => {
           <p>{data.description}</p>
         </div>
         <div className="place__main-website">
-          <a href="https://www.google.com/" target="_blank" rel="noreferrer">
+          <a href={data.website} target="_blank" rel="noreferrer">
             <i className="fas fa-globe-americas"></i>
             <p>Visit Website</p>
           </a>
