@@ -1,0 +1,65 @@
+.create-dest {
+  padding-top: 15rem;
+  padding-bottom: 5rem;
+
+  &__type {
+    padding-bottom: 3rem;
+    display: flex;
+    justify-content: center;
+
+    & p {
+      font-size: 1.8rem;
+      font-weight: 500;
+      padding: 1.75rem;
+      border-radius: 50rem;
+
+      &:not(:last-child) {
+        margin-right: 2rem;
+      }
+    }
+  }
+
+  &__main {
+    padding: 0 3rem;
+
+    & div {
+      padding: 1.25rem 0;
+      display: flex;
+      flex-direction: column;
+
+      & label {
+        font-size: 1.7rem;
+        font-weight: 500;
+        margin-bottom: 0.85rem;
+      }
+
+      & input,
+      & select {
+        padding: 1.25rem 0.75rem;
+        border: 1.5px solid #999;
+        font-size: 1.8rem;
+        outline: none;
+
+        &:focus {
+          border: 2px solid rgb(145, 145, 145);
+        }
+      }
+    }
+  }
+
+  &__button {
+    padding: 3rem 0 !important;
+
+    & button {
+      width: 60%;
+      margin: 0 auto;
+      font-size: 1.8rem;
+      letter-spacing: 0.1rem;
+    }
+  }
+
+  &__active {
+    background: rgb(0, 0, 0);
+    color: white;
+  }
+}

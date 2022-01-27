@@ -1,0 +1,95 @@
+.layout {
+  width: 100vw;
+
+  &__header {
+    position: fixed;
+    width: 100%;
+    background: #fff;
+    padding: 2.25rem 0;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+
+    &--title {
+      font-size: 2.6rem;
+      flex: 1;
+      text-align: center;
+    }
+
+    &--btn {
+      width: 15%;
+      text-align: center;
+
+      & button {
+        background: none;
+      }
+
+      &-line {
+        height: 0.35rem;
+        width: 4rem;
+        background: black;
+        position: relative;
+
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          height: 100%;
+          width: 3.35rem;
+          background: black;
+        }
+
+        &::before {
+          top: -0.75rem;
+        }
+
+        &::after {
+          top: 0.75rem;
+        }
+      }
+
+      &-nav {
+        border: none;
+      }
+
+      &-user {
+        border: 2px solid black;
+        height: 5.15rem;
+        width: 5.15rem;
+        border-radius: 10rem;
+
+        & i {
+          font-size: 2rem;
+        }
+      }
+
+      &-search {
+        height: 4.25rem;
+        width: 4.25rem;
+        border: none;
+
+        & i {
+          font-size: 2.5rem;
+        }
+      }
+    }
+  }
+
+  &__main {
+    width: 100%;
+  }
+
+  &__footer {
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background: rgb(231, 231, 231);
+    font-size: 1.4rem;
+    line-height: 1.2;
+    padding: 1.5rem 2rem;
+    text-align: center;
+  }
+}

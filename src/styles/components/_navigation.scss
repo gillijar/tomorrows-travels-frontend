@@ -1,0 +1,84 @@
+.nav {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  top: 0;
+  bottom: 0;
+  right: 15%;
+  left: 0;
+  background: rgb(255, 255, 255);
+  z-index: 40;
+  padding: 1.5rem 2.5rem;
+
+  &__div {
+    &:not(:first-child) {
+      margin: 1.5rem 0;
+    }
+  }
+
+  &__close {
+    text-align: right;
+
+    & p {
+      font-size: 3rem;
+      color: #000;
+      font-weight: 600;
+      display: inline-block;
+      padding: 1rem;
+    }
+  }
+
+  &__button {
+    text-align: center;
+    padding: 3rem 0;
+
+    & button {
+      width: 90%;
+      padding: 1.5rem 0;
+      border-radius: 50rem;
+      border: none;
+      background: #000;
+      color: #fff;
+      font-size: 1.8rem;
+    }
+  }
+
+  &__main {
+    & p {
+      font-weight: 500;
+      font-size: 1.8rem;
+      line-height: 2.2;
+    }
+
+    &-section {
+      padding-left: 1rem;
+    }
+  }
+
+  & h3 {
+    font-weight: 600;
+    font-size: 2.4rem;
+    line-height: 2.2;
+  }
+
+  &__overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 35;
+    pointer-events: none;
+  }
+
+  &__footer {
+    font-size: 1.4rem;
+    color: rgb(212, 212, 212);
+    position: absolute;
+    bottom: 0.5rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

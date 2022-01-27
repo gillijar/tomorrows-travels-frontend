@@ -1,0 +1,22 @@
+.destinations {
+  padding-top: 15rem;
+
+  &__section {
+    padding-left: 2rem;
+
+    &--city {
+      padding-left: 2rem;
+      font-size: 3.2rem;
+      color: red;
+
+      & span {
+        color: black;
+      }
+    }
+
+    &--list {
+      list-style-type: none;
+      padding-top: 3rem;
+    }
+  }
+}

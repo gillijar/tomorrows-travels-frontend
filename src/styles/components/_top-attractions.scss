@@ -1,0 +1,86 @@
+.top-att {
+  padding-top: 5rem;
+
+  &__title {
+    font-size: 2.6rem;
+    font-weight: 500;
+    padding-bottom: 3.5rem;
+  }
+
+  &__desc {
+    padding-bottom: 3rem;
+    font-size: 2.2rem;
+    line-height: 1.4;
+  }
+
+  &__see-all {
+    padding-bottom: 3rem;
+    font-size: 1.8rem;
+    text-decoration: underline;
+  }
+
+  &__list {
+    display: flex;
+    overflow: scroll;
+    list-style-type: none;
+
+    &::-webkit-scrollbar {
+      width: 0; /* Remove scrollbar space */
+      background: transparent;
+    }
+  }
+
+  &__item {
+    position: relative;
+    margin-right: 2rem;
+    width: 80vw;
+    font-size: 1.4rem;
+
+    &--img-container {
+      height: 27.5rem;
+      overflow: hidden;
+    }
+
+    &--img {
+      height: 100%;
+      object-fit: contain;
+    }
+
+    &--info {
+      padding: 1rem 0;
+
+      &-title {
+        font-size: 1.8rem;
+        font-weight: bold;
+      }
+    }
+
+    &--ratings-container {
+      display: flex;
+      align-items: center;
+      margin-top: 0.75rem;
+
+      &-rating {
+        font-weight: bold;
+      }
+
+      & p:not(:last-child) {
+        margin-right: 0.75rem;
+      }
+    }
+
+    &--all {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2.4rem;
+      background: #976c6c;
+    }
+
+    &--tag {
+      padding-top: 0.5rem;
+    }
+  }
+}

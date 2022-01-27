@@ -1,0 +1,17 @@
+@import "./styles/abstracts/mixins.scss";
+
+@import "./styles/base/base.scss";
+
+@import "./styles/components/layout.scss";
+@import "./styles/components/loading-spinner.scss";
+@import "./styles/components/navigation.scss";
+@import "./styles/components/ratings.scss";
+@import "./styles/components/top-attractions.scss";
+@import "./styles/components/search.scss";
+
+@import "./styles/pages/auth.scss";
+@import "./styles/pages/create-destination.scss";
+@import "./styles/pages/destinations.scss";
+@import "./styles/pages/home.scss";
+@import "./styles/pages/individual-place.scss";
+@import "./styles/pages/places.scss";
