@@ -1,10 +1,13 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import createReviewFunc from "../../helpers/createReview";
 
 const CreateReview = (props) => {
+  const [hasError, setHasError] = useState({});
+
   const { id } = useParams();
 
+  const userInputRef = useRef();
   const reviewInputRef = useRef();
   const ratingInputRef = useRef();
 
@@ -14,19 +17,35 @@ const CreateReview = (props) => {
     const formBody = {
       review: reviewInputRef.current.value,
       rating: ratingInputRef.current.value,
-      attraction: id,
-      user: "61c272e061b694fee167f817",
+      destination: id,
+      user: userInputRef.current.value,
     };
 
-    createReviewFunc(`http://127.0.0.1:3000/api/v1/reviews`, formBody);
+    createReviewFunc(
+      `http://127.0.0.1:3000/api/v1/reviews`,
+      formBody,
+      props.onClose,
+      setHasError
+    );
   };
 
   return (
-    <div style={{ paddingTop: "15rem" }}>
-      <p>Leave review for {props.name}</p>
+    <div className="reviews__create">
+      {hasError.message && (
+        <div className="auth__msg auth__msg-error">
+          <p>{hasError.message}</p>
+        </div>
+      )}
+      <i
+        className="fas fa-times reviews__create--close"
+        onClick={props.onClose}
+      ></i>
+      <p className="reviews__create--location">
+        Leave review for <span>{props.name}</span>
+      </p>
       <form onSubmit={submitFormHandler}>
-        <input type="text" placeholder="Enter review" ref={reviewInputRef} />{" "}
-        <br />
+        <input type="text" placeholder="Enter name" ref={userInputRef} />
+        <textarea type="text" placeholder="Enter review" ref={reviewInputRef} />
         <input
           type="text"
           min="1"

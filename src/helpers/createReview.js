@@ -1,4 +1,5 @@
-const createReview = async (url, formBody) => {
+const createReview = async (url, formBody, close, error) => {
+  let data;
   try {
     const response = await fetch(url, {
       method: "POST",
@@ -8,11 +9,18 @@ const createReview = async (url, formBody) => {
       body: JSON.stringify(formBody),
     });
 
-    const data = await response.json();
+    data = await response.json();
 
-    console.log(data);
+    if (response.ok) {
+      close();
+    }
+
+    if (!response.ok) {
+      throw new Error();
+    }
   } catch (err) {
-    console.log(err);
+    console.log(data);
+    error(data);
   }
 };
 
