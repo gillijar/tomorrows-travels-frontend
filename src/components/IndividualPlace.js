@@ -8,10 +8,7 @@ import thousandsSeparatorFunc from "../helpers/thousandsSeperator";
 
 import Ratings from "./UI/Ratings";
 import SearchForm from "./Search/SearchForm";
-
-import TestImg from "../img/test-img.jpg";
-import TestImg2 from "../img/test-img-2.jpg";
-import TestImg3 from "../img/search.jpeg";
+import Reviews from "./UI/Reviews";
 
 import { animated, useSpring } from "@react-spring/web";
 
@@ -162,6 +159,7 @@ const IndividualPlace = () => {
             <p>Visit Website</p>
           </a>
         </div>
+        <Reviews data={data} />
       </div>
       {isSearching && <SearchForm autoFocus="autoFocus" />}
     </div>

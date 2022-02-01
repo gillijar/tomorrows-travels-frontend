@@ -1,0 +1,38 @@
+.reviews {
+  margin-top: 2rem !important;
+  position: absolute;
+  width: 100vw;
+  left: 0;
+  padding: 3rem 2rem 2rem 2rem;
+  background: rgb(236, 236, 236);
+
+  & h3 {
+    font-size: 2.2rem;
+    letter-spacing: 0.1rem;
+    margin-bottom: 4rem;
+  }
+
+  & ul {
+    list-style-type: none;
+  }
+
+  & li {
+    border-radius: 5px;
+    margin: 2rem 0;
+    padding: 1.25rem;
+    background: rgb(216, 216, 216);
+  }
+
+  &__name {
+    font-size: 2rem;
+    font-weight: bolder;
+    margin-bottom: 1.25rem;
+    color: rgb(48, 48, 121);
+  }
+
+  &__text {
+    font-size: 1.7rem;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+}

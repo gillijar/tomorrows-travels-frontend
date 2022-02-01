@@ -48,14 +48,6 @@ const Layout = (props) => {
           Tomorrow's Travels
         </h1>
         <div className="layout__header--btn">
-          {page && (
-            <button
-              className="layout__header--btn-user"
-              // onClick={openSearchHandler}
-            >
-              <i className="fas fa-user"></i>
-            </button>
-          )}
           {!page && !verifyAuth && (
             <button
               className="layout__header--btn-search"
