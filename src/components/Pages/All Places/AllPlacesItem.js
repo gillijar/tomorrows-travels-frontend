@@ -1,7 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router";
 import { useDispatch } from "react-redux";
-import TestImg from "../../../img/test-img.jpg";
 import { locationActions } from "../../../store/location";
 import thousandsSeparatorFunc from "../../../helpers/thousandsSeperator";
 import Ratings from "../../UI/Ratings";

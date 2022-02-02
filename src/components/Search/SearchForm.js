@@ -21,12 +21,12 @@ const SearchForm = (props) => {
 
   useEffect(() => {
     fetchLocations(
-      `http://127.0.0.1:3000/api/v1/locations`,
+      `${process.env.REACT_APP_WEB_HOST}/locations`,
       setIsLoading,
       setAllLocations
     );
     fetchLocations(
-      `http://127.0.0.1:3000/api/v1/locations?sort=-numLocations&limit=5`,
+      `${process.env.REACT_APP_WEB_HOST}/locations?sort=-numLocations&limit=5`,
       setIsLoading,
       setPopularDestinations
     );

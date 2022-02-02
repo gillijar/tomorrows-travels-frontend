@@ -10,11 +10,8 @@ const fetchAttractions = async (url, setStateFunc) => {
 
     const data = await response.json();
 
-    console.log(data.data.attractions);
     setStateFunc(data.data.attractions);
-  } catch (err) {
-    console.log(err);
-  }
+  } catch (err) {}
 };
 
 export default fetchAttractions;

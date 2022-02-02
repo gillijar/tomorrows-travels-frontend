@@ -27,12 +27,12 @@ const AllPlaces = () => {
   useEffect(() => {
     if (category === "attractions") {
       fetchAttractions(
-        `http://127.0.0.1:3000/api/v1/attractions${search}`,
+        `${process.env.REACT_APP_WEB_HOST}/attractions${search}`,
         setData
       );
     } else if (category === "restaurants") {
       fetchRestaurants(
-        `http://127.0.0.1:3000/api/v1/restaurants${search}`,
+        `${process.env.REACT_APP_WEB_HOST}/restaurants${search}`,
         setData
       );
     }

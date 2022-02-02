@@ -2,8 +2,6 @@ import React from "react";
 import { useHistory } from "react-router";
 import { useDispatch } from "react-redux";
 import { locationActions } from "../../store/location";
-import TestImg from "../../img/test-img.jpg";
-import TestImg2 from "../../img/test-img-2.jpg";
 import thousandsSeperatorFunc from "../../helpers/thousandsSeperator";
 
 import Ratings from "../UI/Ratings";

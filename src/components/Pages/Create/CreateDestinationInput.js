@@ -32,7 +32,7 @@ const CreateDestinationInput = (props) => {
     };
 
     createDestination(
-      `http://127.0.0.1:3000/api/v1/${props.type.toLowerCase()}s`,
+      `${process.env.REACT_APP_WEB_HOST}/${props.type.toLowerCase()}s`,
       formBody
     );
   };

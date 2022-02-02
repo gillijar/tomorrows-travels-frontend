@@ -10,12 +10,9 @@ const fetchAttractions = async (url, setLoadingFunc, setStateFunc) => {
 
     const data = await response.json();
 
-    console.log(data.data.allLocations);
     setStateFunc(data.data.allLocations);
     setLoadingFunc(false);
-  } catch (err) {
-    console.log(err);
-  }
+  } catch (err) {}
 };
 
 export default fetchAttractions;

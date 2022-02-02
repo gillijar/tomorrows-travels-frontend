@@ -22,7 +22,7 @@ const CreateReview = (props) => {
     };
 
     createReviewFunc(
-      `http://127.0.0.1:3000/api/v1/reviews`,
+      `${process.env.REACT_APP_WEB_HOST}/reviews`,
       formBody,
       props.onClose,
       setHasError

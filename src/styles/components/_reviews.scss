@@ -41,14 +41,44 @@
   }
 
   &__text {
+    max-height: 15rem;
+    overflow: hidden;
     font-size: 1.8rem;
     font-weight: 500;
     line-height: 1.4;
+
+    &--extended {
+      font-size: 1.8rem;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+  }
+
+  &__see-more {
+    margin-top: 0.75rem;
+    font-weight: 700;
+    font-size: 1.6rem;
   }
 
   &__empty {
     margin-top: 1.5rem;
+    margin-bottom: 2rem;
     font-size: 2rem;
+  }
+
+  &__main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 2rem;
+  }
+
+  &__created {
+    & > * {
+      &:not(:last-child) {
+        margin-bottom: 0.35rem;
+      }
+    }
   }
 
   &__create {
@@ -68,6 +98,7 @@
     & p {
       font-size: 2.2rem;
       font-weight: 500;
+      line-height: 1.2;
 
       & span {
         font-weight: 700;

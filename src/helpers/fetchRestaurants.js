@@ -9,11 +9,8 @@ const fetchRestaurants = async (url, setStateFunc) => {
 
     const data = await response.json();
 
-    console.log(data.data.restaurants);
     setStateFunc(data.data.restaurants);
-  } catch (err) {
-    console.log(err);
-  }
+  } catch (err) {}
 };
 
 export default fetchRestaurants;

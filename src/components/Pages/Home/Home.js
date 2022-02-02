@@ -15,11 +15,11 @@ const Home = () => {
 
   useEffect(() => {
     fetchAttractions(
-      `http://127.0.0.1:3000/api/v1/attractions?sort=-ratingsAverage,-ratings&limit=4`,
+      `${process.env.REACT_APP_WEB_HOST}/attractions?sort=-ratingsAverage,-ratings&limit=4`,
       setAttractionsData
     );
     fetchRestaurants(
-      `http://127.0.0.1:3000/api/v1/restaurants?sort=-ratingsAverage,-ratings&limit=4`,
+      `${process.env.REACT_APP_WEB_HOST}/restaurants?sort=-ratingsAverage,-ratings&limit=4`,
       setRestaurantsData
     );
 
