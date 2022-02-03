@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { searchActions } from "../../store/search";
 import Navigation from "./Navigation";
 import NavigationOverlay from "./NavigationOverlay";
+import GoToTop from "../../helpers/goToTop";
 
 const Layout = (props) => {
   const history = useHistory();
@@ -59,6 +60,7 @@ const Layout = (props) => {
         </div>
       </header>
       <main className="layout__main">{props.children}</main>
+      <GoToTop />
     </div>
   );
 };
