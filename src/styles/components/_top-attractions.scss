@@ -23,6 +23,7 @@
     display: flex;
     overflow: scroll;
     list-style-type: none;
+    padding-right: 2rem;
 
     &::-webkit-scrollbar {
       width: 0; /* Remove scrollbar space */
@@ -32,9 +33,12 @@
 
   &__item {
     position: relative;
-    margin-right: 2rem;
     width: 80vw;
     font-size: 1.4rem;
+
+    &:not(:last-child) {
+      margin-right: 2rem;
+    }
 
     &--img-container {
       height: 27.5rem;
