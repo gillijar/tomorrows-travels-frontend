@@ -33,7 +33,8 @@
 
   &__item {
     position: relative;
-    width: 80vw;
+    max-width: 62.5vw;
+    min-width: 62.5vw;
     font-size: 1.4rem;
 
     &:not(:last-child) {
@@ -41,13 +42,16 @@
     }
 
     &--img-container {
-      height: 27.5rem;
+      height: 26rem;
+      width: 100%;
       overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     &--img {
       height: 100%;
-      object-fit: contain;
     }
 
     &--info {
