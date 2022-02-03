@@ -1,12 +1,22 @@
 .search {
   position: fixed;
-  top: 0;
+  top: 8rem;
   left: 0;
-  min-height: 100vh;
+  min-height: 100%;
   width: 100vw;
   background: white;
-  padding-top: 10rem;
+  padding-top: 3rem;
   z-index: 15;
+
+  @include respond(tab-land) {
+    position: absolute;
+    top: 3rem;
+    width: 100%;
+    z-index: -1;
+    padding-top: 6rem;
+    border-bottom-left-radius: 3rem;
+    border-bottom-right-radius: 3rem;
+  }
 
   &__list {
     width: 90%;

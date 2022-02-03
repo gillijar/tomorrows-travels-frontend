@@ -1,5 +1,5 @@
 .places {
-  padding-top: 15rem;
+  padding-top: 4rem;
 
   &__title {
     font-size: 3.6rem;
@@ -17,10 +17,20 @@
   &__section {
     margin-top: 8rem;
 
+    @include respond(tab-land) {
+      width: 50%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     &--amount {
       font-size: 1.6rem;
       font-weight: 500;
       padding: 0 0 2.5rem 1rem;
+    }
+
+    &--list {
+      list-style-type: none;
     }
   }
 
@@ -30,6 +40,10 @@
 
     &--img-container {
       height: 25rem;
+
+      @include respond(tab-land) {
+        height: 30rem;
+      }
 
       & img {
         height: 100%;

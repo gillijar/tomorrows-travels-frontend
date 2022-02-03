@@ -1,8 +1,14 @@
 .layout {
-  width: 100vw;
+  width: 100%;
+  position: relative;
+
+  @include respond(tab-land) {
+    padding-top: 6rem;
+  }
 
   &__header {
-    position: fixed;
+    position: sticky;
+    top: 0;
     width: 100%;
     background: #fff;
     padding: 2.25rem 0;
@@ -12,15 +18,29 @@
     align-items: center;
     z-index: 15;
 
+    @include respond(tab-land) {
+      position: relative;
+      padding: 0;
+      height: 6vh;
+    }
+
     &--title {
       font-size: 2.6rem;
       flex: 1;
       text-align: center;
+
+      @include respond(tab-land) {
+        flex: none;
+      }
     }
 
     &--btn {
       width: 15%;
       text-align: center;
+
+      @include respond(tab-land) {
+        display: none;
+      }
 
       & button {
         background: none;

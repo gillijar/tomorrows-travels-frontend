@@ -100,48 +100,50 @@ const IndividualPlace = () => {
 
   return (
     <div className="place">
-      <div className="place__main">
-        <div className="place__main-title">
-          <h1>{data.name}</h1>
-          <div>
-            <p className="place__main-open">
-              {isOpen ? "Open now" : "Closed now"}
+      <div className="place__desktop-container">
+        <div className="place__main place__desktop-main">
+          <div className="place__main-title">
+            <h1>{data.name}</h1>
+            <div>
+              <p className="place__main-open">
+                {isOpen ? "Open now" : "Closed now"}
+              </p>
+              <p className="place__main-hours">{data.hoursOfOperation}</p>
+            </div>
+          </div>
+          <div className="place__main-info">
+            <i className="fas fa-map-marker-alt"></i>
+            <p>
+              {data.address}, {data.city} {data.state}
             </p>
-            <p className="place__main-hours">{data.hoursOfOperation}</p>
           </div>
-        </div>
-        <div className="place__main-info">
-          <i className="fas fa-map-marker-alt"></i>
-          <p>
-            {data.address}, {data.city} {data.state}
-          </p>
-        </div>
-        <div className="place__main-ratings">
-          {data.ratingsAverage && <Ratings data={data} />}
-          {data.ratings && <p>{thousandsSeperator(data.ratings)}</p>}
-        </div>
-        <p className="place__main-tag">{data.tag}</p>
-      </div>
-      <div className="place__img">
-        <div className="place__img-arrow">
-          <div className="place__img-left" onClick={prevSlide}>
-            <i className="fas fa-arrow-left"></i>
+          <div className="place__main-ratings">
+            {data.ratingsAverage && <Ratings data={data} />}
+            {data.ratings && <p>{thousandsSeperator(data.ratings)}</p>}
           </div>
-          <div className="place__img-right" onClick={nextSlide}>
-            <i className="fas fa-arrow-right"></i>
+          <p className="place__main-tag">{data.tag}</p>
+        </div>
+        <div className="place__img">
+          <div className="place__img-arrow">
+            <div className="place__img-left" onClick={prevSlide}>
+              <i className="fas fa-arrow-left"></i>
+            </div>
+            <div className="place__img-right" onClick={nextSlide}>
+              <i className="fas fa-arrow-right"></i>
+            </div>
           </div>
+          <div className="place__img-amount">
+            <i className="far fa-images"></i>
+            <p>{images && images.length}</p>
+          </div>
+          <animated.div
+            className="place__img-container"
+            style={{ transform: x.to((x) => `translateX(-${x}%)`) }}
+          >
+            {images &&
+              images.map((img, i) => <img key={i} src={img} alt="test" />)}
+          </animated.div>
         </div>
-        <div className="place__img-amount">
-          <i className="far fa-images"></i>
-          <p>{images && images.length}</p>
-        </div>
-        <animated.div
-          className="place__img-container"
-          style={{ transform: x.to((x) => `translateX(-${x}%)`) }}
-        >
-          {images &&
-            images.map((img, i) => <img key={i} src={img} alt="test" />)}
-        </animated.div>
       </div>
       <div className="place__main">
         <div className="place__main-description">

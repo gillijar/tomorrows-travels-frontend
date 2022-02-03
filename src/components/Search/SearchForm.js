@@ -63,6 +63,13 @@ const SearchForm = (props) => {
 
   return (
     <Fragment>
+      <div
+        className={`${
+          isSearching
+            ? "home__attention--form-backdrop"
+            : "home__attention--form-backdrop-active"
+        }`}
+      ></div>
       <form
         className={`${
           isSearching
@@ -89,22 +96,22 @@ const SearchForm = (props) => {
         >
           <i className="fas fa-arrow-left"></i>
         </button>
+        {isSearching && searchLocationInput.length === 0 && (
+          <Search
+            data={popularDestinations}
+            msg="Popular Destinations"
+            isLoading={isLoading}
+          />
+        )}
+        {isSearching && searchLocationInput.length > 0 && (
+          <Search
+            data={searchedLocation}
+            search={searchLocationInput}
+            msg="Match's Found"
+            isLoading={isLoading}
+          />
+        )}
       </form>
-      {isSearching && searchLocationInput.length === 0 && (
-        <Search
-          data={popularDestinations}
-          msg="Popular Destinations"
-          isLoading={isLoading}
-        />
-      )}
-      {isSearching && searchLocationInput.length > 0 && (
-        <Search
-          data={searchedLocation}
-          search={searchLocationInput}
-          msg="Match's Found"
-          isLoading={isLoading}
-        />
-      )}
     </Fragment>
   );
 };
