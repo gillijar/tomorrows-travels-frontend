@@ -31,30 +31,36 @@ const CreateReview = (props) => {
 
   return (
     <div className="reviews__create">
-      {hasError.message && (
-        <div className="auth__msg auth__msg-error">
-          <p>{hasError.message}</p>
-        </div>
-      )}
       <i
         className="fas fa-times reviews__create--close"
         onClick={props.onClose}
       ></i>
-      <p className="reviews__create--location">
-        Leave review for <span>{props.name}</span>
-      </p>
-      <form onSubmit={submitFormHandler}>
-        <input type="text" placeholder="Enter name" ref={userInputRef} />
-        <textarea type="text" placeholder="Enter review" ref={reviewInputRef} />
-        <input
-          type="text"
-          min="1"
-          max="5"
-          placeholder="Enter rating"
-          ref={ratingInputRef}
-        />
-        <button type="submit">Submit</button>
-      </form>
+      <div className="reviews__create-main">
+        {hasError.message && (
+          <div className="auth__msg auth__msg-error">
+            <p>{hasError.message}</p>
+          </div>
+        )}
+        <p className="reviews__create--location">
+          Leave review for <span>{props.name}</span>
+        </p>
+        <form onSubmit={submitFormHandler}>
+          <input type="text" placeholder="Enter name" ref={userInputRef} />
+          <textarea
+            type="text"
+            placeholder="Enter review"
+            ref={reviewInputRef}
+          />
+          <input
+            type="text"
+            min="1"
+            max="5"
+            placeholder="Enter rating"
+            ref={ratingInputRef}
+          />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     </div>
   );
 };

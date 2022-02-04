@@ -89,6 +89,8 @@
 
     &-website {
       margin-top: 5rem;
+      cursor: pointer;
+      width: min-content;
 
       & a {
         padding: 1rem 1.5rem;
@@ -157,6 +159,7 @@
       align-items: center;
       font-size: 2rem;
       color: #fff;
+      cursor: pointer;
     }
 
     &-amount {

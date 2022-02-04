@@ -156,8 +156,8 @@ const IndividualPlace = () => {
             <p>Visit Website</p>
           </a>
         </div>
-        <Reviews data={data} />
       </div>
+      <Reviews data={data} />
       {isSearching && <SearchForm autoFocus="autoFocus" />}
     </div>
   );
