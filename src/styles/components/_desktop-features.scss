@@ -1,0 +1,131 @@
+.desktop {
+  &__search {
+    position: absolute;
+    background: #fff;
+    padding: 4rem 1rem 0 1rem;
+    top: 1.5rem;
+    width: 100%;
+    z-index: -1;
+    border-bottom-left-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+
+    &-list {
+      width: 100%;
+      margin: 0 auto;
+      list-style-type: none;
+
+      &-msg {
+        font-size: 1.6rem;
+        padding-bottom: 1.5rem;
+        font-weight: bold;
+        color: #7c7c7c;
+      }
+
+      &--item {
+        display: flex;
+        align-items: center;
+        padding: 2rem 0;
+
+        &-pin {
+          border: 2px solid #a8a8a8;
+          height: 3rem;
+          width: 3rem;
+          border-radius: 10rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-weight: 100;
+
+          & i {
+            font-size: 1.5rem;
+          }
+        }
+
+        &:not(:last-child) {
+          border-bottom: 2px solid #a8a8a8;
+        }
+
+        &-info {
+          margin-left: 1.25rem;
+          line-height: 1.25;
+
+          &-city {
+            font-size: 1.6rem;
+            font-weight: bold;
+          }
+
+          &-state {
+            font-size: 1.3rem;
+          }
+        }
+      }
+    }
+
+    &--form {
+      position: relative;
+      display: inline-block;
+      flex: 1;
+      margin-left: 5rem;
+      border-radius: 10rem;
+      display: flex;
+      overflow: visible;
+      background: #fff;
+      border: 1.35px solid #999;
+      z-index: 25;
+
+      & input {
+        height: 3.5rem;
+        font-size: 1.6rem;
+        border: none;
+        width: 80%;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      &-btn {
+        width: 12.5%;
+        background: none;
+        border: none;
+      }
+    }
+  }
+
+  &__nav {
+    display: none;
+    width: 30%;
+
+    @include respond(tab-land) {
+      display: block;
+    }
+
+    & ul {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style-type: none;
+
+      & li {
+        font-size: 1.8rem;
+        font-weight: bold;
+        cursor: pointer;
+      }
+    }
+
+    &-user {
+      border: 1.5px solid #000;
+      height: 4rem;
+      width: 4rem;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgb(238, 238, 238);
+
+      & i {
+        font-size: 1.6rem;
+      }
+    }
+  }
+}

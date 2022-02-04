@@ -5,6 +5,8 @@ import { searchActions } from "../../store/search";
 import Navigation from "./Navigation";
 import NavigationOverlay from "./NavigationOverlay";
 import GoToTop from "../../helpers/goToTop";
+import DesktopSearchForm from "../Desktop Features/DesktopSearchForm";
+import DesktopNav from "../Desktop Features/DesktopNav";
 
 const Layout = (props) => {
   const history = useHistory();
@@ -48,6 +50,15 @@ const Layout = (props) => {
         <h1 className="layout__header--title" onClick={goToHomeHandler}>
           Tomorrow's Travels
         </h1>
+        <div className="layout__header--desktop">
+          <h1
+            className="layout__header--desktop-title"
+            onClick={goToHomeHandler}
+          >
+            Tomorrow's Travels
+          </h1>
+          {!page && <DesktopSearchForm />}
+        </div>
         <div className="layout__header--btn">
           {!page && !verifyAuth && (
             <button
@@ -58,6 +69,7 @@ const Layout = (props) => {
             </button>
           )}
         </div>
+        <DesktopNav />
       </header>
       <main className="layout__main">{props.children}</main>
       <GoToTop />
