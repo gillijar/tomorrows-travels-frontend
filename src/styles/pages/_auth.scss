@@ -1,12 +1,26 @@
 .auth {
-  padding: 15rem 3rem 0 3rem;
+  padding: 3rem 3rem;
+
+  @include respond(tab-land) {
+    padding-top: 5rem;
+    width: 35%;
+    margin: 0 auto;
+  }
 
   &__div {
     padding: 3rem 0;
 
+    @include respond(tab-land) {
+      padding: 1.5rem 0;
+    }
+
     &-title {
       font-size: 3.6rem;
       font-weight: 700;
+
+      @include respond(tab-land) {
+        font-size: 2.8rem;
+      }
     }
 
     &-button {
@@ -18,6 +32,12 @@
       background: #000;
       color: #fff;
       font-size: 1.8rem;
+
+      @include respond(tab-land) {
+        width: 100%;
+        padding: 1.25rem 0;
+        font-size: 1.6rem;
+      }
     }
 
     &-type {
@@ -50,6 +70,10 @@
   }
 
   &__form {
+    @include respond(tab-land) {
+      padding: 0 0;
+    }
+
     &-input {
       display: flex;
       flex-direction: column;
@@ -83,6 +107,11 @@
         font-size: 2rem;
         border: 2px solid #999;
         outline: none;
+
+        @include respond(tab-land) {
+          padding: 1rem;
+          font-size: 1.6rem;
+        }
       }
     }
   }

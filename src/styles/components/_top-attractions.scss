@@ -37,6 +37,7 @@
     max-width: 62.5vw;
     min-width: 62.5vw;
     font-size: 1.4rem;
+    cursor: pointer;
 
     @include respond(tab-land) {
       max-width: 25%;

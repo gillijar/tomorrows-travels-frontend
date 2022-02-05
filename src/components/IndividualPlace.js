@@ -118,7 +118,7 @@ const IndividualPlace = () => {
             </p>
           </div>
           <div className="place__main-ratings">
-            {data.ratingsAverage && <Ratings data={data} />}
+            <Ratings data={data} />
             {data.ratings && <p>{thousandsSeperator(data.ratings)}</p>}
           </div>
           <p className="place__main-tag">{data.tag}</p>

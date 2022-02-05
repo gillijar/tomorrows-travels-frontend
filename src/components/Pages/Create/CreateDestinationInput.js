@@ -14,9 +14,13 @@ const CreateDestinationInput = (props) => {
   const descriptionInputRef = useRef();
   const websiteInputRef = useRef();
   const tagInputRef = useRef();
+  const imagesInputRef = useRef();
 
   const submitFormHandler = (e) => {
     e.preventDefault();
+
+    const images = imagesInputRef.current.value;
+    const arrayOfImages = images.split(",");
 
     const formBody = {
       name: nameInputRef.current.value,
@@ -26,6 +30,7 @@ const CreateDestinationInput = (props) => {
       price: priceInputRef.current.value,
       summary: summaryInputRef.current.value,
       description: descriptionInputRef.current.value,
+      images: arrayOfImages,
       website: websiteInputRef.current.value,
       tag: tagInputRef.current.value,
       category: `${props.type.toLowerCase()}s`,
@@ -99,7 +104,15 @@ const CreateDestinationInput = (props) => {
           ref={descriptionInputRef}
         />
       </div>
-      {/* images */}
+      <div>
+        <label htmlFor="images">Images</label>
+        <input
+          id="images"
+          type="text"
+          placeholder="Enter attraction images"
+          ref={imagesInputRef}
+        />
+      </div>
       <div>
         <label htmlFor="website">Website</label>
         <input
