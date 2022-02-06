@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useHistory, useLocation } from "react-router";
 
 import TopAttractionsList from "./TopAttractionsList";
+import LoadingSpinner from "../UI/LoadingSpinner";
 
 const TopAttractions = (props) => {
   const history = useHistory();
@@ -27,7 +28,13 @@ const TopAttractions = (props) => {
         </p>
       )}
       <ul className="top-att__list">
+        {props.isLoading && (
+          <div className="loading-container">
+            <LoadingSpinner styleClass="loading-container__spinner" />
+          </div>
+        )}
         {props.data &&
+          !props.isLoading &&
           props.data.map((att) => (
             <TopAttractionsList key={att._id} data={att} />
           ))}

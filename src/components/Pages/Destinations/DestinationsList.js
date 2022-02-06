@@ -17,6 +17,8 @@ const Destinations = () => {
 
   const [attractionsData, setAttractionsData] = useState([]);
   const [restaurantsData, setRestaurantsData] = useState([]);
+  const [attractionsLoading, setAttractionsLoading] = useState(false);
+  const [restaurantsLoading, setRestaurantsLoading] = useState(false);
 
   const city = search
     .split("&")[0]
@@ -29,12 +31,14 @@ const Destinations = () => {
   useEffect(() => {
     fetchAttractions(
       `${process.env.REACT_APP_WEB_HOST}/attractions${search}`,
-      setAttractionsData
+      setAttractionsData,
+      setAttractionsLoading
     );
 
     fetchRestaurants(
       `${process.env.REACT_APP_WEB_HOST}/restaurants${search}`,
-      setRestaurantsData
+      setRestaurantsData,
+      setRestaurantsLoading
     );
 
     dispatch(locationActions.setPageIsHome(false));
@@ -59,6 +63,7 @@ const Destinations = () => {
                 desc="Places to see, ways to wander, and signature experiences."
                 category="attractions"
                 title="Do"
+                isLoading={attractionsLoading}
               />
             </section>
           )}
@@ -69,6 +74,7 @@ const Destinations = () => {
                 desc="Can't-miss spots to dine, drink, and feast."
                 category="restaurants"
                 title="Eat"
+                isLoading={restaurantsLoading}
               />
             </section>
           )}

@@ -25,6 +25,7 @@
     overflow: scroll;
     list-style-type: none;
     padding-right: 2rem;
+    position: relative;
 
     &::-webkit-scrollbar {
       width: 0; /* Remove scrollbar space */
@@ -97,4 +98,7 @@
       padding-top: 0.5rem;
     }
   }
+}
+
+.test {
 }

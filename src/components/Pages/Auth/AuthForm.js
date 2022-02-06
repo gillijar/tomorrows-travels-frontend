@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useHistory } from "react-router";
 import { useDispatch } from "react-redux";
-import { locationActions } from "../../store/location";
-import LoadingSpinner from "../UI/LoadingSpinner";
+import { locationActions } from "../../../store/location";
+import LoadingSpinner from "../../UI/LoadingSpinner";
 
 const AuthForm = (props) => {
   const history = useHistory();

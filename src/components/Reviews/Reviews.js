@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import CreateReview from "../UI/CreateReview";
+import CreateReview from "./CreateReview";
 import ReviewItem from "./ReviewItem";
 
 const Reviews = (props) => {

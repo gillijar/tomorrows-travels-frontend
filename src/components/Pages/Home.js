@@ -1,26 +1,30 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { locationActions } from "../../../store/location";
-import fetchAttractions from "../../../helpers/fetchAttractions";
-import fetchRestaurants from "../../../helpers/fetchRestaurants";
+import { locationActions } from "../../store/location";
+import fetchAttractions from "../../helpers/fetchAttractions";
+import fetchRestaurants from "../../helpers/fetchRestaurants";
 
-import SearchForm from "../../Search/SearchForm";
-import TopAttractions from "../../Top Attractions/TopAttractions";
+import SearchForm from "../Search/SearchForm";
+import TopAttractions from "../Top Attractions/TopAttractions";
 
 const Home = () => {
   const dispatch = useDispatch();
 
   const [attractionsData, setAttractionsData] = useState([]);
   const [restaurantsData, setRestaurantsData] = useState([]);
+  const [attractionsLoading, setAttractionsLoading] = useState(false);
+  const [restaurantsLoading, setRestaurantsLoading] = useState(false);
 
   useEffect(() => {
     fetchAttractions(
       `${process.env.REACT_APP_WEB_HOST}/attractions?sort=-ratingsAverage,-ratings&limit=4`,
-      setAttractionsData
+      setAttractionsData,
+      setAttractionsLoading
     );
     fetchRestaurants(
       `${process.env.REACT_APP_WEB_HOST}/restaurants?sort=-ratingsAverage,-ratings&limit=4`,
-      setRestaurantsData
+      setRestaurantsData,
+      setRestaurantsLoading
     );
 
     dispatch(locationActions.setPageIsHome(true));
@@ -35,10 +39,12 @@ const Home = () => {
         <TopAttractions
           title="Explore Top Attractions"
           data={attractionsData}
+          isLoading={attractionsLoading}
         />
         <TopAttractions
           title="Explore Top Places to Eat"
           data={restaurantsData}
+          isLoading={restaurantsLoading}
         />
       </section>
       <footer className="layout__footer">

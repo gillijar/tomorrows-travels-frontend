@@ -1,5 +1,6 @@
-const fetchRestaurants = async (url, setStateFunc) => {
+const fetchRestaurants = async (url, setStateFunc, setLoadingFunc) => {
   try {
+    setLoadingFunc(true);
     const response = await fetch(url, {
       method: "GET",
       headers: {
@@ -10,7 +11,10 @@ const fetchRestaurants = async (url, setStateFunc) => {
     const data = await response.json();
 
     setStateFunc(data.data.restaurants);
-  } catch (err) {}
+    setLoadingFunc(false);
+  } catch (err) {
+    setLoadingFunc(false);
+  }
 };
 
 export default fetchRestaurants;

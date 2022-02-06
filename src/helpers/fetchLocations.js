@@ -1,4 +1,4 @@
-const fetchAttractions = async (url, setLoadingFunc, setStateFunc) => {
+const fetchLocations = async (url, setLoadingFunc, setStateFunc) => {
   try {
     setLoadingFunc(true);
     const response = await fetch(url, {
@@ -12,7 +12,9 @@ const fetchAttractions = async (url, setLoadingFunc, setStateFunc) => {
 
     setStateFunc(data.data.allLocations);
     setLoadingFunc(false);
-  } catch (err) {}
+  } catch (err) {
+    setLoadingFunc(false);
+  }
 };
 
-export default fetchAttractions;
+export default fetchLocations;

@@ -3,13 +3,13 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import "./App.scss";
 
 import Layout from "./components/UI/Layout";
-import Home from "./components/Pages/Home/Home";
+import Home from "./components/Pages/Home";
 import Destinations from "./components/Pages/Destinations/DestinationsList";
 import AllPlaces from "./components/Pages/All Places/AllPlaces";
-import IndividualPlace from "./components/IndividualPlace";
+import IndividualPlace from "./components/Pages/IndividualPlace";
 import Login from "./components/Pages/Auth/Login";
 import Signup from "./components/Pages/Auth/Signup";
-import ForgotPassword from "./components/UI/ForgotPassword";
+import ForgotPassword from "./components/Pages/Auth/ForgotPassword";
 import CreateDestination from "./components/Pages/Create/CreateDestination";
 
 const App = () => {

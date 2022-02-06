@@ -4,6 +4,8 @@ import { useLocation } from "react-router";
 
 import AllPlacesItem from "./AllPlacesItem";
 import SearchForm from "../../Search/SearchForm";
+import LoadingSpinner from "../../UI/LoadingSpinner";
+
 import fetchAttractions from "../../../helpers/fetchAttractions";
 import fetchRestaurants from "../../../helpers/fetchRestaurants";
 
@@ -13,6 +15,8 @@ const AllPlaces = () => {
   const { pathname } = location;
 
   const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
   const category = pathname.replace("/", "");
   const isSearching = useSelector((state) => state.search.isSearching);
   let i = 0;
@@ -28,12 +32,14 @@ const AllPlaces = () => {
     if (category === "attractions") {
       fetchAttractions(
         `${process.env.REACT_APP_WEB_HOST}/attractions${search}`,
-        setData
+        setData,
+        setIsLoading
       );
     } else if (category === "restaurants") {
       fetchRestaurants(
         `${process.env.REACT_APP_WEB_HOST}/restaurants${search}`,
-        setData
+        setData,
+        setIsLoading
       );
     }
   }, [search, category]);
@@ -54,12 +60,19 @@ const AllPlaces = () => {
         <p className="places__section--amount">
           {data.length} results found...
         </p>
-        <ul className="places__section--list">
-          {data.map((item) => {
-            i++;
-            return <AllPlacesItem key={item._id} data={item} index={i} />;
-          })}
-        </ul>
+        {isLoading && (
+          <div className="loading-container loading-container__places">
+            <LoadingSpinner styleClass="loading-container__spinner" />
+          </div>
+        )}
+        {!isLoading && (
+          <ul className="places__section--list">
+            {data.map((item) => {
+              i++;
+              return <AllPlacesItem key={item._id} data={item} index={i} />;
+            })}
+          </ul>
+        )}
       </section>
       {isSearching && <SearchForm autoFocus="autoFocus" />}
     </div>
