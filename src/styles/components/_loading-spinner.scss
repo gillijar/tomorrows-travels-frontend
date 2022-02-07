@@ -12,6 +12,10 @@
   color: rgb(85, 85, 85);
   transform: translate(-50%, -50%);
   animation: spin 1.5s linear infinite;
+
+  @include respond(tab-land) {
+    font-size: 5rem;
+  }
 }
 
 @keyframes spin {

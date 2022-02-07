@@ -18,7 +18,14 @@ const TopAttractionsList = (props) => {
   };
 
   return (
-    <li className="top-att__item" onClick={findAttractionHandler}>
+    <li
+      className={`${
+        props.list && props.list.length >= 4
+          ? `top-att__item top-att__item--full`
+          : `top-att__item top-att__item--not-full`
+      }`}
+      onClick={findAttractionHandler}
+    >
       <div className="top-att__item--container">
         <div className="top-att__item--img-container">
           <img

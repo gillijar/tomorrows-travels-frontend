@@ -27,7 +27,13 @@ const TopAttractions = (props) => {
           See all
         </p>
       )}
-      <ul className="top-att__list">
+      <ul
+        className={`${
+          props.data && props.data.length >= 4
+            ? `top-att__list top-att__list--full`
+            : `top-att__list top-att__list--not-full`
+        }`}
+      >
         {props.isLoading && (
           <div className="loading-container">
             <LoadingSpinner styleClass="loading-container__spinner" />
@@ -36,7 +42,7 @@ const TopAttractions = (props) => {
         {props.data &&
           !props.isLoading &&
           props.data.map((att) => (
-            <TopAttractionsList key={att._id} data={att} />
+            <TopAttractionsList key={att._id} data={att} list={props.data} />
           ))}
       </ul>
     </div>

@@ -49,7 +49,7 @@ const CreateDestinationInput = (props) => {
         <input
           id="name"
           type="text"
-          placeholder="Enter attraction name"
+          placeholder="Enter name"
           ref={nameInputRef}
         />
       </div>
@@ -58,7 +58,7 @@ const CreateDestinationInput = (props) => {
         <input
           id="city"
           type="text"
-          placeholder="Enter attraction city"
+          placeholder="Enter city"
           ref={cityInputRef}
         />
       </div>
@@ -75,23 +75,16 @@ const CreateDestinationInput = (props) => {
         <input
           id="address"
           type="text"
-          placeholder="Enter attraction address"
+          placeholder="Enter address"
           ref={addressInputRef}
         />
-      </div>
-      <div>
-        {/* This needs fixed to be an input */}
-        <label htmlFor="price">Price</label>
-        <select id="price" ref={priceInputRef}>
-          <option>0</option>
-        </select>
       </div>
       <div>
         <label htmlFor="summary">Summary</label>
         <input
           id="summary"
           type="text"
-          placeholder="Enter attraction summary"
+          placeholder="Enter summary"
           ref={summaryInputRef}
         />
       </div>
@@ -100,7 +93,7 @@ const CreateDestinationInput = (props) => {
         <input
           id="description"
           type="text"
-          placeholder="Enter attraction description"
+          placeholder="Enter description"
           ref={descriptionInputRef}
         />
       </div>
@@ -109,7 +102,7 @@ const CreateDestinationInput = (props) => {
         <input
           id="images"
           type="text"
-          placeholder="Enter attraction images"
+          placeholder="Enter images"
           ref={imagesInputRef}
         />
       </div>
@@ -118,18 +111,22 @@ const CreateDestinationInput = (props) => {
         <input
           id="website"
           type="text"
-          placeholder="Enter attraction website"
+          placeholder="Enter website"
+          ref={websiteInputRef}
+        />
+      </div>
+      <div>
+        <label htmlFor="hours-of-operation">Hours of operation</label>
+        <input
+          id="hours-of-operation"
+          type="text"
+          placeholder="Enter hours of operation"
           ref={websiteInputRef}
         />
       </div>
       <div>
         <label htmlFor="tag">Tag</label>
-        <input
-          id="tag"
-          type="text"
-          placeholder="Enter attraction tag"
-          ref={tagInputRef}
-        />
+        <input id="tag" type="text" placeholder="Enter tag" ref={tagInputRef} />
       </div>
       <div className="create-dest__button">
         <button type="submit" className="auth__div-button">

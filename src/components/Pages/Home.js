@@ -15,20 +15,22 @@ const Home = () => {
   const [attractionsLoading, setAttractionsLoading] = useState(false);
   const [restaurantsLoading, setRestaurantsLoading] = useState(false);
 
+  const loadLimit = window.innerWidth > 1000 ? 4 : 8;
+
   useEffect(() => {
     fetchAttractions(
-      `${process.env.REACT_APP_WEB_HOST}/attractions?sort=-ratingsAverage,-ratings&limit=4`,
+      `${process.env.REACT_APP_WEB_HOST}/attractions?sort=-ratingsAverage,-ratings&limit=${loadLimit}`,
       setAttractionsData,
       setAttractionsLoading
     );
     fetchRestaurants(
-      `${process.env.REACT_APP_WEB_HOST}/restaurants?sort=-ratingsAverage,-ratings&limit=4`,
+      `${process.env.REACT_APP_WEB_HOST}/restaurants?sort=-ratingsAverage,-ratings&limit=${loadLimit}`,
       setRestaurantsData,
       setRestaurantsLoading
     );
 
     dispatch(locationActions.setPageIsHome(true));
-  }, [dispatch]);
+  }, [dispatch, loadLimit]);
 
   return (
     <div className="home">

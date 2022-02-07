@@ -26,6 +26,20 @@
     list-style-type: none;
     padding-right: 2rem;
     position: relative;
+    width: 100%;
+
+    &--full {
+      @include respond(tab-land) {
+        padding-right: 0;
+        justify-content: space-between;
+      }
+    }
+
+    &--not-full {
+      @include respond(tab-land) {
+        justify-content: flex-start;
+      }
+    }
 
     &::-webkit-scrollbar {
       width: 0; /* Remove scrollbar space */
@@ -40,13 +54,26 @@
     font-size: 1.4rem;
     cursor: pointer;
 
+    &--not-full {
+      margin-right: 2rem !important;
+    }
+
+    @media only screen and (min-width: 736px) {
+      max-width: 35%;
+      min-width: 35%;
+    }
+
     @include respond(tab-land) {
-      max-width: 25%;
-      min-width: 25%;
+      min-width: 24%;
+      max-width: 24%;
     }
 
     &:not(:last-child) {
       margin-right: 2rem;
+
+      @include respond(tab-land) {
+        margin-right: 0;
+      }
     }
 
     &--img-container {
