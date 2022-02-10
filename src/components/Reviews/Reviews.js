@@ -4,20 +4,20 @@ import ReviewItem from "./ReviewItem";
 
 const Reviews = (props) => {
   const [createReview, setCreateReview] = useState(false);
-  const [reviewLimit, setReviewLimit] = useState(5);
+  const [reviewLimit, setReviewLimit] = useState(3);
 
   const addReviewHandler = () => {
     setCreateReview((prevState) => !prevState);
   };
 
   const loadMoreHandler = () => {
-    setReviewLimit((prevState) => prevState + 5);
+    setReviewLimit((prevState) => prevState + 3);
   };
 
   let allReviews = props.data.reviews;
 
   if (allReviews && allReviews.length > 1) {
-    allReviews = allReviews.slice(0, reviewLimit);
+    allReviews = allReviews.slice(-reviewLimit);
     allReviews = allReviews.reverse();
   }
 
@@ -40,7 +40,13 @@ const Reviews = (props) => {
       {createReview && (
         <CreateReview name={props.data.name} onClose={addReviewHandler} />
       )}
-      <button onClick={loadMoreHandler}>Load more...</button>
+      {props.data.reviews &&
+        props.data.reviews.length > 5 &&
+        props.data.reviews.length > reviewLimit && (
+          <div className="reviews__load">
+            <button onClick={loadMoreHandler}>Load more</button>
+          </div>
+        )}
     </div>
   );
 };

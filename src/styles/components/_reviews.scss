@@ -43,7 +43,7 @@
     font-size: 2rem;
     font-weight: bolder;
     margin-bottom: 1.25rem;
-    color: rgb(48, 48, 121);
+    color: rgb(0, 40, 173);
   }
 
   &__text {
@@ -166,6 +166,27 @@
       @include respond(tab-land) {
         font-size: 2.4rem;
         cursor: pointer;
+      }
+    }
+  }
+
+  &__load {
+    margin-top: 2.75rem;
+    text-align: center;
+
+    & button {
+      padding: 1.25rem;
+      width: 40%;
+      font-size: 1.8rem;
+      border-radius: 5rem;
+      border: none;
+      background: #000;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+
+      @include respond(tab-land) {
+        width: 25%;
       }
     }
   }

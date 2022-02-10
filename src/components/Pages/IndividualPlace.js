@@ -70,7 +70,7 @@ const IndividualPlace = () => {
       closingHour = morningHours[closingHour];
     }
 
-    isOpen = date.getHours() > openingHour && date.getHours() < closingHour;
+    isOpen = date.getHours() >= openingHour && date.getHours() < closingHour;
   }
 
   // END TESTING
@@ -117,9 +117,8 @@ const IndividualPlace = () => {
                 <h1>{data.name}</h1>
                 {data.hoursOfOperation && (
                   <div>
-                    <p className="place__main-open">
-                      {isOpen ? "Open now" : "Closed now"}
-                    </p>
+                    {isOpen && <p className="place__main-open">Open now</p>}
+                    {!isOpen && <p className="place__main-close">Closed now</p>}
                     <p className="place__main-hours">{data.hoursOfOperation}</p>
                   </div>
                 )}
@@ -164,12 +163,14 @@ const IndividualPlace = () => {
               <p className="place__main-description--heading">About</p>
               <p>{data.description}</p>
             </div>
-            <div className="place__main-website">
-              <a href={data.website} target="_blank" rel="noreferrer">
-                <i className="fas fa-globe-americas"></i>
-                <p>Visit Website</p>
-              </a>
-            </div>
+            {data.website && (
+              <div className="place__main-website">
+                <a href={data.website} target="_blank" rel="noreferrer">
+                  <i className="fas fa-globe-americas"></i>
+                  <p>Visit Website</p>
+                </a>
+              </div>
+            )}
           </div>
           <Reviews data={data} />
           {isSearching && <SearchForm autoFocus="autoFocus" />}

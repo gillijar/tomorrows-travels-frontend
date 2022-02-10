@@ -2,6 +2,13 @@
   padding-top: 5rem;
   padding-bottom: 5rem;
 
+  @include respond(tab-land) {
+    width: 45%;
+    margin: 5rem auto;
+    border-radius: 1.5rem;
+    background: rgb(242, 242, 242);
+  }
+
   &__type {
     padding-bottom: 3rem;
     display: flex;
@@ -12,6 +19,7 @@
       font-weight: 500;
       padding: 1.75rem;
       border-radius: 50rem;
+      cursor: pointer;
 
       &:not(:last-child) {
         margin-right: 2rem;
@@ -54,7 +62,7 @@
       width: 60%;
       margin: 0 auto;
       font-size: 1.8rem;
-      letter-spacing: 0.1rem;
+      letter-spacing: 0.05rem;
     }
   }
 

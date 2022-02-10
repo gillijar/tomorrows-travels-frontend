@@ -15,9 +15,11 @@
   }
 
   &__see-all {
-    padding-bottom: 3rem;
+    margin-bottom: 3rem;
     font-size: 1.8rem;
     text-decoration: underline;
+    display: inline-block;
+    cursor: pointer;
   }
 
   &__list {

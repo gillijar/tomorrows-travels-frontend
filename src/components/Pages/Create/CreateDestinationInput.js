@@ -13,6 +13,7 @@ const CreateDestinationInput = (props) => {
   const summaryInputRef = useRef();
   const descriptionInputRef = useRef();
   const websiteInputRef = useRef();
+  const hoursInputRef = useRef();
   const tagInputRef = useRef();
   const imagesInputRef = useRef();
 
@@ -32,6 +33,7 @@ const CreateDestinationInput = (props) => {
       description: descriptionInputRef.current.value,
       images: arrayOfImages,
       website: websiteInputRef.current.value,
+      hoursOfOperation: hoursInputRef.current.value,
       tag: tagInputRef.current.value,
       category: `${props.type.toLowerCase()}s`,
     };
@@ -121,7 +123,7 @@ const CreateDestinationInput = (props) => {
           id="hours-of-operation"
           type="text"
           placeholder="Enter hours of operation"
-          ref={websiteInputRef}
+          ref={hoursInputRef}
         />
       </div>
       <div>
