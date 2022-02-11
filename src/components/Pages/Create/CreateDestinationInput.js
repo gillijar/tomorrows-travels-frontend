@@ -10,7 +10,6 @@ const CreateDestinationInput = (props) => {
   const stateInputRef = useRef();
   const addressInputRef = useRef();
   const priceInputRef = useRef();
-  const summaryInputRef = useRef();
   const descriptionInputRef = useRef();
   const websiteInputRef = useRef();
   const hoursInputRef = useRef();
