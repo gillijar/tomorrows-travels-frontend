@@ -29,7 +29,6 @@ const CreateDestinationInput = (props) => {
       state: stateInputRef.current.value,
       address: addressInputRef.current.value,
       price: priceInputRef.current.value,
-      summary: summaryInputRef.current.value,
       description: descriptionInputRef.current.value,
       images: arrayOfImages,
       website: websiteInputRef.current.value,
@@ -82,12 +81,12 @@ const CreateDestinationInput = (props) => {
         />
       </div>
       <div>
-        <label htmlFor="summary">Summary</label>
+        <label htmlFor="price">Price</label>
         <input
-          id="summary"
+          id="price"
           type="text"
-          placeholder="Enter summary"
-          ref={summaryInputRef}
+          placeholder="Enter price"
+          ref={priceInputRef}
         />
       </div>
       <div>

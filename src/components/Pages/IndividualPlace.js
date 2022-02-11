@@ -10,6 +10,7 @@ import Ratings from "../UI/Ratings";
 import SearchForm from "../Search/SearchForm";
 import Reviews from "../Reviews/Reviews";
 import LoadingSpinner from "../UI/LoadingSpinner";
+import hoursOfOp from "../../helpers/hoursOfOp";
 
 import { animated, useSpring } from "@react-spring/web";
 
@@ -43,37 +44,7 @@ const IndividualPlace = () => {
 
   const images = data.images;
 
-  // let isOpen = true;
-  let isOpen;
-
-  // TESTING
-  if (data.hoursOfOperation) {
-    const date = new Date();
-
-    const opHours = data.hoursOfOperation.split(" - ");
-    const morningHours = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
-    const eveningHours = [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23];
-    let open = opHours[0].split(" ");
-    let close = opHours[1].split(" ");
-    let openingHour = +open[0].split(":")[0];
-    let closingHour = +close[0].split(":")[0];
-
-    if (open.includes("AM")) {
-      openingHour = morningHours[openingHour];
-    } else {
-      openingHour = eveningHours[openingHour];
-    }
-
-    if (close.includes("PM")) {
-      closingHour = eveningHours[closingHour];
-    } else {
-      closingHour = morningHours[closingHour];
-    }
-
-    isOpen = date.getHours() >= openingHour && date.getHours() < closingHour;
-  }
-
-  // END TESTING
+  const isOpen = hoursOfOp(data);
 
   const [curSlide, setCurSlide] = useState(0);
 
@@ -159,10 +130,12 @@ const IndividualPlace = () => {
             </div>
           </div>
           <div className="place__main">
-            <div className="place__main-description">
-              <p className="place__main-description--heading">About</p>
-              <p>{data.description}</p>
-            </div>
+            {data.description && (
+              <div className="place__main-description">
+                <p className="place__main-description--heading">About</p>
+                <p>{data.description}</p>
+              </div>
+            )}
             {data.website && (
               <div className="place__main-website">
                 <a href={data.website} target="_blank" rel="noreferrer">
