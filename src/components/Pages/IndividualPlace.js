@@ -11,6 +11,7 @@ import SearchForm from "../Search/SearchForm";
 import Reviews from "../Reviews/Reviews";
 import LoadingSpinner from "../UI/LoadingSpinner";
 import hoursOfOp from "../../helpers/hoursOfOp";
+import Map from "../UI/Map";
 
 import { animated, useSpring } from "@react-spring/web";
 
@@ -96,9 +97,7 @@ const IndividualPlace = () => {
               </div>
               <div className="place__main-info">
                 <i className="fas fa-map-marker-alt"></i>
-                <p>
-                  {data.address}, {data.city} {data.state}
-                </p>
+                <p>{data.address}</p>
               </div>
               <div className="place__main-ratings">
                 {data.ratingsAverage > 0 && <Ratings data={data} />}
@@ -136,6 +135,7 @@ const IndividualPlace = () => {
                 <p>{data.description}</p>
               </div>
             )}
+            <Map data={data} />
             {data.website && (
               <div className="place__main-website">
                 <a href={data.website} target="_blank" rel="noreferrer">
