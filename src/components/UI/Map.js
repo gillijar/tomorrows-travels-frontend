@@ -1,17 +1,17 @@
 import React from "react";
+import LoadingSpinner from "./LoadingSpinner";
 
 const Map = (props) => {
-  const attAddress = props.data.address;
   let address;
+  const attAddress = props.data.address;
 
   if (attAddress) {
     address = attAddress.split(" ").join("%20");
   }
 
-  console.log(address);
-
   return (
     <div className="map__container">
+      <LoadingSpinner styleClass="map__container--loading" />
       <div className="map__canvas">
         <iframe
           className="map__frame"
