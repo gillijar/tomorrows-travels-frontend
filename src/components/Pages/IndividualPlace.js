@@ -24,6 +24,8 @@ const IndividualPlace = () => {
   const { pathname } = location;
   const category = pathname.split("/")[1];
   const thousandsSeperator = thousandsSeparatorFunc;
+  const images = data.images;
+  const isOpen = hoursOfOp(data);
 
   const isSearching = useSelector((state) => state.search.isSearching);
 
@@ -42,10 +44,6 @@ const IndividualPlace = () => {
       );
     dispatch(locationActions.setPageIsHome(false));
   }, [dispatch, category, id]);
-
-  const images = data.images;
-
-  const isOpen = hoursOfOp(data);
 
   const [curSlide, setCurSlide] = useState(0);
 
@@ -91,7 +89,9 @@ const IndividualPlace = () => {
                   <div>
                     {isOpen && <p className="place__main-open">Open now</p>}
                     {!isOpen && <p className="place__main-close">Closed now</p>}
-                    <p className="place__main-hours">{data.hoursOfOperation}</p>
+                    <p className="place__main-hours">
+                      {data.hoursOfOperation.split(" ").slice(0, -1).join(" ")}
+                    </p>
                   </div>
                 )}
               </div>

@@ -3,6 +3,27 @@ const hoursOfOp = (data) => {
 
   if (data.hoursOfOperation) {
     const date = new Date();
+    const userTimezone = date.getTimezoneOffset() / 60;
+
+    let attractionTimezone = data.hoursOfOperation.split(" ");
+    attractionTimezone = attractionTimezone[attractionTimezone.length - 1];
+
+    let offset;
+    if (attractionTimezone === "EST") {
+      offset = 5;
+    } else if (attractionTimezone === "CST") {
+      offset = 6;
+    } else if (attractionTimezone === "MST") {
+      offset = 7;
+    } else if (attractionTimezone === "PST") {
+      offset = 8;
+    }
+
+    const timezoneOffset = userTimezone - offset;
+    const userHours = date.getHours() + timezoneOffset;
+    let userMinutes = String(date.getMinutes());
+    userMinutes = userMinutes.padStart(2, "0");
+    const userTime = String(userHours) + userMinutes;
 
     const opHours = data.hoursOfOperation.split(" - ");
     const morningHours = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
@@ -10,6 +31,7 @@ const hoursOfOp = (data) => {
     let open = opHours[0].split(" ");
     let close = opHours[1].split(" ");
     let openingHour = +open[0].split(":")[0];
+    let openingMinute = String(open[0].split(":")[1]);
     let closingHour = +close[0].split(":")[0];
 
     if (open.includes("AM")) {
@@ -24,7 +46,13 @@ const hoursOfOp = (data) => {
       closingHour = morningHours[closingHour];
     }
 
-    isOpen = date.getHours() >= openingHour && date.getHours() < closingHour;
+    openingMinute = openingMinute.padStart(2, "0");
+    const openingTime = String(openingHour) + String(openingMinute);
+
+    console.log(+userTime);
+    console.log(+openingTime);
+
+    isOpen = +userTime >= +openingTime && userHours < closingHour;
     return isOpen;
   }
 };
