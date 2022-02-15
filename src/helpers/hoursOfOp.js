@@ -49,9 +49,6 @@ const hoursOfOp = (data) => {
     openingMinute = openingMinute.padStart(2, "0");
     const openingTime = String(openingHour) + String(openingMinute);
 
-    console.log(+userTime);
-    console.log(+openingTime);
-
     isOpen = +userTime >= +openingTime && userHours < closingHour;
     return isOpen;
   }

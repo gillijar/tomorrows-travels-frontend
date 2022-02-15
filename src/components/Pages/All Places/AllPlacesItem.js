@@ -8,9 +8,13 @@ import Ratings from "../../UI/Ratings";
 const AllPlacesItem = (props) => {
   const history = useHistory();
   const dispatch = useDispatch();
+  let description;
 
   const thousandsSeperator = thousandsSeparatorFunc;
-  let description = props.data.description.split(" ").slice(0, 30);
+
+  if (props.data.description) {
+    description = props.data.description.split(" ").slice(0, 30);
+  }
 
   const findPlaceHandler = () => {
     dispatch(locationActions.searchCategory(props.data.category));
@@ -34,12 +38,14 @@ const AllPlacesItem = (props) => {
           <p>{thousandsSeperator(props.data.ratings)}</p>
         </div>
         <p>{props.data.tag}</p>
-        <p>{props.data.hoursOfOperation}</p>
-        <p className="places__list-item--info-desc">{`${
-          description.length >= 30
-            ? description.join(" ") + "..."
-            : description.join(" ")
-        }`}</p>
+        <p>{props.data.hoursOfOperation.split(" ").slice(0, -1).join(" ")}</p>
+        {description && (
+          <p className="places__list-item--info-desc">{`${
+            description.length >= 30
+              ? description.join(" ") + "..."
+              : description.join(" ")
+          }`}</p>
+        )}
       </div>
     </li>
   );
