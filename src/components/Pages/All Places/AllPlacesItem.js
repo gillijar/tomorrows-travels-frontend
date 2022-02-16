@@ -38,7 +38,9 @@ const AllPlacesItem = (props) => {
           <p>{thousandsSeperator(props.data.ratings)}</p>
         </div>
         <p>{props.data.tag}</p>
-        <p>{props.data.hoursOfOperation.split(" ").slice(0, -1).join(" ")}</p>
+        {props.data.hoursOfOperation && (
+          <p>{props.data.hoursOfOperation.split(" ").slice(0, -1).join(" ")}</p>
+        )}
         {description && (
           <p className="places__list-item--info-desc">{`${
             description.length >= 30

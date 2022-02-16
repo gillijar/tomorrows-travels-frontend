@@ -33,6 +33,7 @@ const hoursOfOp = (data) => {
     let openingHour = +open[0].split(":")[0];
     let openingMinute = String(open[0].split(":")[1]);
     let closingHour = +close[0].split(":")[0];
+    let closingMinute = String(close[0].split(":")[1]);
 
     if (open.includes("AM")) {
       openingHour = morningHours[openingHour];
@@ -47,9 +48,11 @@ const hoursOfOp = (data) => {
     }
 
     openingMinute = openingMinute.padStart(2, "0");
+    closingMinute = closingMinute.padStart(2, "0");
     const openingTime = String(openingHour) + String(openingMinute);
+    const closingTime = String(closingHour) + String(closingMinute);
 
-    isOpen = +userTime >= +openingTime && userHours < closingHour;
+    isOpen = +userTime >= +openingTime && +userTime < +closingTime;
     return isOpen;
   }
 };

@@ -10,6 +10,8 @@ body {
   line-height: 1.6rem;
   max-width: 100vw;
   overflow-x: hidden;
+  min-height: 100vh;
+  background: #fff;
 
   @include respond(tab-land) {
     padding: 0 10rem;
