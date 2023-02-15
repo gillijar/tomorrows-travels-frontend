@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { useHistory } from "react-router";
 import { useDispatch } from "react-redux";
 import { locationActions } from "../../../store/location";
+import { authActions } from "../../../store/auth";
 import LoadingSpinner from "../../UI/LoadingSpinner";
 
 const AuthForm = (props) => {
@@ -59,7 +60,20 @@ const AuthForm = (props) => {
 
       data = await response.json();
 
+      if (page === "login") {
+        const userId = atob(data.data.user.id);
+        const role = data.data.user.role;
+        localStorage.setItem("credentials", JSON.stringify({ userId, role }));
+      }
+
+      if (page === "signup") {
+        const userId = atob(data.data.user._id);
+        const role = data.data.user.role;
+        localStorage.setItem("credentials", JSON.stringify({ userId, role }));
+      }
+
       if (response.ok) {
+        dispatch(authActions.setUserLoggedIn(true));
         history.push("/");
       }
 

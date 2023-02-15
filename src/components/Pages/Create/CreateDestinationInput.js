@@ -19,6 +19,10 @@ const CreateDestinationInput = (props) => {
   const submitFormHandler = (e) => {
     e.preventDefault();
 
+    console.log(
+      `${process.env.REACT_APP_WEB_HOST}/${props.type.toLowerCase()}s`
+    );
+
     const images = imagesInputRef.current.value;
     const arrayOfImages = images.split(",");
 

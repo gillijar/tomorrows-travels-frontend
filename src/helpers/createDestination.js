@@ -8,9 +8,7 @@ const createDestination = async (url, formBody) => {
       body: JSON.stringify(formBody),
     });
 
-    const data = await response.json();
-
-    console.log(data);
+    await response.json();
   } catch (err) {
     console.log(err);
   }

@@ -3,7 +3,11 @@
   position: relative;
 
   @include respond(tab-land) {
-    padding-top: 6rem;
+    padding: 6rem 10rem 0 10rem;
+  }
+
+  @include respond(big-desktop) {
+    padding: 6rem 20rem 0 20rem;
   }
 
   &__header {

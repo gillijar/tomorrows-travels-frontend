@@ -6,7 +6,7 @@ const Search = (props) => {
   return (
     <div className="search">
       <ul className="search__list">
-        {props.isLoading && <LoadingSpinner />}
+        {props.isLoading && <LoadingSpinner styleClass={"search__loader"} />}
         {props.data.length > 0 && (
           <p className="search__list-msg">{props.msg}</p>
         )}

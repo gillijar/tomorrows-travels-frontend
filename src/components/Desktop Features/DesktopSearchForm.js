@@ -14,7 +14,9 @@ const DesktopSearchForm = (props) => {
     (state) => state.search.searchedLocation
   );
 
-  const [searchLocationInput, setSearchLocationInput] = useState("");
+  const searchLocationInput = useSelector(
+    (state) => state.search.desktopSearchInput
+  );
   const [allLocations, setAllLocations] = useState([]);
   const [popularDestinations, setPopularDestinations] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -40,7 +42,7 @@ const DesktopSearchForm = (props) => {
   }, [dispatch, searchLocationInput, allLocations]);
 
   const inputHandler = (e) => {
-    setSearchLocationInput(e.target.value);
+    dispatch(searchActions.setDesktopSearchInput(e.target.value));
   };
 
   const openSearchHandler = () => {
@@ -79,6 +81,7 @@ const DesktopSearchForm = (props) => {
           onChange={inputHandler}
           onClick={openSearchHandler}
           autoFocus={props.autoFocus}
+          value={searchLocationInput}
         />
         <button
           type="button"

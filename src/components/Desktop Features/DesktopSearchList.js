@@ -9,6 +9,7 @@ const SearchList = (props) => {
 
   const selectLocationHandler = () => {
     dispatch(searchActions.setDesktopIsSearching(false));
+    dispatch(searchActions.setDesktopSearchInput(""));
     history.push(`/destinations?location=${props.data.searchLocation}`);
   };
 

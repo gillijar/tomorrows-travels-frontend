@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { animated, useSpring } from "@react-spring/web";
 import { useHistory } from "react-router";
+import { authActions } from "../../store/auth";
 
 const Navigation = (props) => {
   const history = useHistory();
+  const dispatch = useDispatch();
+  const userLoggedIn = useSelector((state) => state.auth.userLoggedIn);
+
+  useEffect(() => {
+    const creds = localStorage.getItem("credentials");
+
+    if (creds) dispatch(authActions.setUserLoggedIn(true));
+  }, [dispatch]);
 
   const { x } = useSpring({
     x: props.toggled ? 0 : 100,
@@ -12,6 +22,12 @@ const Navigation = (props) => {
   const goToAuthHandler = () => {
     props.onClose();
     history.push("/login");
+  };
+
+  const logoutUser = () => {
+    localStorage.removeItem("credentials");
+    dispatch(authActions.setUserLoggedIn(false));
+    props.onClose();
   };
 
   return (
@@ -27,7 +43,8 @@ const Navigation = (props) => {
           <p onClick={props.onClose}>x</p>
         </div>
         <div className="nav__div nav__button">
-          <button onClick={goToAuthHandler}>Sign in</button>
+          {userLoggedIn && <button onClick={logoutUser}>Logout</button>}
+          {!userLoggedIn && <button onClick={goToAuthHandler}>Sign in</button>}
         </div>
         <div className="nav__div">
           <div className="nav__main">

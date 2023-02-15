@@ -8,6 +8,7 @@ const searchSlice = createSlice({
     searchedLocation: [],
     allLocations: [],
     isLoading: false,
+    desktopSearchInput: "",
   },
   reducers: {
     setIsSearching(state, action) {
@@ -24,6 +25,9 @@ const searchSlice = createSlice({
     },
     setIsLoading(state, action) {
       state.isLoading = action.payload;
+    },
+    setDesktopSearchInput(state, action) {
+      state.desktopSearchInput = action.payload;
     },
   },
 });

@@ -12,14 +12,6 @@ body {
   overflow-x: hidden;
   min-height: 100vh;
   background: #fff;
-
-  @include respond(tab-land) {
-    padding: 0 10rem;
-  }
-
-  @include respond(big-desktop) {
-    padding: 0 20rem;
-  }
 }
 
 html {

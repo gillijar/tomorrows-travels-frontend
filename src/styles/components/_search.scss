@@ -70,4 +70,15 @@
       }
     }
   }
+
+  &__loader {
+    margin-bottom: 3rem;
+
+    @include respond(phone) {
+      position: absolute;
+      top: 5rem;
+      left: 0;
+      width: 100vw;
+    }
+  }
 }
